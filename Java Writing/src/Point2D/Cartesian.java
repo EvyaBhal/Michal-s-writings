@@ -10,21 +10,25 @@ public class Cartesian implements Point2D{
     }
     @Override
     public double getX() {
+
         return x;
     }
 
     @Override
     public void setX(double x) {
+
         this.x = x;
     }
 
     @Override
     public double getY() {
+
         return y;
     }
 
     @Override
     public void setY(double y) {
+
         this.y = y;
     }
 
@@ -42,31 +46,41 @@ public class Cartesian implements Point2D{
 
     @Override
     public double getPhi() {
-        return 0;
+
+        return Math.atan2(y/x);
     }
 
     @Override
     public double getTanPhi() {
+
         return y/x;
     }
 
     @Override
     public void setPhi(double phi) {
+        this.x = getRho()*Math.cos(getPhi());
+        this.y = getRho()*Math.sin(getPhi());
 
     }
 
     @Override
     public Point2D middle(Point2D p) {
-        return null;
+       double midx = (this.x+p.getX())/2;
+       double midy = (this.x+p.getY())/2;
+       Point2D midd = new Cartesian(midx,midy);
+       return midd;
     }
 
     @Override
     public double angle(Point2D p) {
-        return 0;
+
+        return Math.abs((getPhi()-p.getPhi())) ;
     }
 
     @Override
     public double distance(Point2D p) {
-        return 0;
+        double i = (this.x-p.getX());
+        double j = (this.y - p.getY());
+        return Math.hypot(i,j);
     }
 }

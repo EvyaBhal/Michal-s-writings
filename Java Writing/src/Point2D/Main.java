@@ -17,7 +17,7 @@ public class Main
     {
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter( sb );
-        if( Math.abs( d - Math.round( d ) ) < 1.0E-8 )
+        if( Math.abs( d - Math.round( d ) ) < 1.0E-8 )//what??
             d = Math.round( d );
 
         String fmt = "%"+ len + "." + frac + "f";
@@ -64,7 +64,7 @@ public class Main
             System.out.println( "Cartesian representation" );
 
             for( int i = 0; i < coords.length; i++ )
-                list[i] = new Cartesian( coords[i][0], coords[i][1] );
+                list[i] = new Cartesian( coords[i][0], coords[i][1] ); //why??
 
             p1 = new Cartesian( 1, 7 );
             p2 = new Cartesian( 2, 4 );
